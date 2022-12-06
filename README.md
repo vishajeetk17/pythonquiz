@@ -1,0 +1,38 @@
+import random
+
+questions = {'The Sun rises in the east and falls in west': 'True',
+             'The Earth is revolving around the Sun': 'True',
+             'Humans are mortals': 'True',
+             'Water is tasteless, colourless and odourless': 'True',
+             'Sun gives us light': 'True',
+             'Cow have two tails': 'False',
+             'Humans have three eyes': 'False',
+             'Sun is very cold': 'False',
+             'Humans are immortals': 'False',
+             'Capital of India is Delhi': 'False'}
+name = str(input("Enter your name to proceed: "))
+
+def ask_questions():
+    score = 0
+    temp = 1
+    while temp <=5:
+        rand_q = random.choice(list(questions.keys()))
+
+        rand_q_answer = str(questions[rand_q])
+
+        print("\n", rand_q)
+        user_input = input("Your answer: ")
+
+        if user_input.capitalize() == rand_q_answer:
+            print ("Correct Answer!")
+            score +=1
+        else:
+            print ("Incorrect Answer!")
+        temp +=1
+        
+    if score < 3:
+        print("\nTry again! %s, your score is:" %(name), score)
+    else:
+        print("\nCongrats! %s, your score is:" %(name), score)
+ask_questions()
+
